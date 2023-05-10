@@ -1,0 +1,32 @@
+package br.com.dsgame.controllers;
+
+import br.com.dsgame.dto.GameDTO;
+import br.com.dsgame.dto.GameListDTO;
+import br.com.dsgame.dto.GameMinDTO;
+import br.com.dsgame.services.GameListService;
+import br.com.dsgame.services.GameService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/lists")
+public class GameListController {
+
+
+    @Autowired
+    private GameListService gameListService;
+
+
+
+    @GetMapping
+    public List<GameListDTO> findAll() {
+        List<GameListDTO> result = gameListService.findAll();
+        return result;
+    }
+
+}
